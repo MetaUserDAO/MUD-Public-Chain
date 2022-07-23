@@ -1,0 +1,14 @@
+syntax = "proto3";
+package michaelz.mudao.mudao;
+
+import "gogoproto/gogo.proto";
+import "mudao/params.proto";
+// this line is used by starport scaffolding # genesis/proto/import
+
+option go_package = "github.com/michaelz/mudao/x/mudao/types";
+
+// GenesisState defines the mudao module's genesis state.
+message GenesisState {
+  Params params = 1 [(gogoproto.nullable) = false];
+  // this line is used by starport scaffolding # genesis/proto/state
+}

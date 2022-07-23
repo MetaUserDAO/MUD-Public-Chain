@@ -1,0 +1,60 @@
+genesis:
+  app_state:
+    denom_metadata:
+      - base: umud
+        denom_units:
+        - aliases:
+          - micromud
+          denom: umud
+          exponent: 0
+        - aliases:
+          - millimud
+          denom: mmud
+          exponent: 3
+        - aliases: []
+          denom: mud
+          exponent: 6
+        description: The native staking token of the Cosmos Hub.
+        display: mud  
+
+    staking:
+      params:
+        bond_denom: "umud"
+    crisis:
+      constant_fee:
+        denom: "umud"
+    gov:
+      deposit_params:
+        min_deposit:
+          - "amount": "10000000"
+            "denom": "umud"
+    mint:
+      params:
+        mint_denom: "umud"
+
+accounts:
+  - name: alice
+    coins: ["200000000umud"]
+  - name: bob
+    coins: ["100000000umud"]
+  - name: ChrisZhang
+    coins: ["50000000umud"]
+  - name: MichaelZhang
+    coins: ["28000000umud"]
+  - name: LiSong
+    coins: ["88800000umud"]
+  - name: SantoshiNakamoto
+    coins: ["66600000umud"]
+  - name: Vitalik Buterin
+    coins: ["55500000umud"]
+validator:
+  name: alice
+  staked: "100000000umud"
+client:
+  openapi:
+    path: "docs/static/openapi.yml"
+  vuex:
+    path: "vue/src/store"
+faucet:
+  name: bob
+  coins: ["100000umud"]

@@ -1,0 +1,60 @@
+version: "3"
+
+services:
+  atomnode0:
+    container_name: atom0
+    image: "atom01:v1"
+    environment:
+      - DEBUG=1
+      - ID=0
+      - LOG=${LOG:-hellod.log}
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined
+    ports:
+      - "26656-26657:26656-26657"
+      - "1317:1317"
+      - "9090:9090"
+      - "2345:2345"
+    volumes:
+      - /home/michael/.mudao:/root/.mudao
+    #entrypoint: /root/hellod start
+    entrypoint: sleep infinity
+    networks:
+      hellonet:
+        ipv4_address: 192.168.11.2
+        
+  atomnode1:
+    container_name: atom1
+    image: "atom01:v1"
+    environment:
+      - DEBUG=1
+      - ID=0
+      - LOG=${LOG:-hellod.log}
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined
+    ports:
+      - "26666-26667:26656-26657"
+      - "1318:1317"
+      - "9091:9090"
+      - "2346:2345"
+    volumes:
+      - /home/michael/.mudao1:/root/.mudao
+    #entrypoint: /root/hellod start
+    entrypoint: sleep infinity
+    networks:
+      hellonet:
+        ipv4_address: 192.168.11.3
+
+
+
+networks:
+  hellonet:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.11.0/25

@@ -1,0 +1,12 @@
+syntax = "proto3";
+package michaelz.mudao.mudao;
+
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/michaelz/mudao/x/mudao/types";
+
+// Params defines the parameters for the module.
+message Params {
+  option (gogoproto.goproto_stringer) = false;
+  
+}
