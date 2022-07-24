@@ -47,6 +47,8 @@ accounts:
     coins: ["66600000umud"]
   - name: Vitalik Buterin
     coins: ["55500000umud"]
+  - name: James Johnson
+    coins: ["180000000umud]
 validator:
   name: alice
   staked: "100000000umud"
